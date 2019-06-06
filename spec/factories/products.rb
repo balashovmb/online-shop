@@ -5,6 +5,5 @@ FactoryBot.define do
     weight { 1 }
     size { 1 }
     color { "MyString" }
-    cost { 1.5 }
   end
 end
