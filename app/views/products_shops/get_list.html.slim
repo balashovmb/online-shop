@@ -1,0 +1,10 @@
+= form_tag get_list_products_shops_path(format: :xlsx), method: :get do |f|
+  -@shops.each do |shop|
+    p
+      = label_tag(shop.name)  
+      = check_box_tag( {:multiple => true}, shop.id, nil, name:"shop_ids[]")
+  - ProductsShop::PROPS.each do |prop|
+    p 
+      = label_tag(prop)  
+      = check_box_tag( {:multiple => true}, prop, nil, name:"props[]")    
+  = submit_tag "Сформировать"

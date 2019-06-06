@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'pages#main'
   resources :products
-  resources :products_shops, only: :index
+  resources :products_shops, only: :index do
+    collection do
+      get 'get_list'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

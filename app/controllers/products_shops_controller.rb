@@ -1,20 +1,17 @@
 class ProductsShopsController < ApplicationController
-#    before_action :set_product, only: [:show, :destroy, :update]
 
-  def index
-    @products_shop = ProductsShop.all
-    @data[:head] = ["Product Name", "City", "Shop Name", "Adress", "Quantity", "Cost"]
-    @data[:body] = [p_s.product.name, p_s.shop.city, p_s.shop.name, p_s.shop.adress, p_s.quantity, p_s.cost]
+  def get_list
+    @shops = Shop.all
+    shop_ids = params[:shop_ids]
+    props = params[:props]
+    @products_list = ProductsShop::PrepareList.call(shop_ids, props) if shop_ids && shop_ids.any?
     respond_to do |format|
       format.xlsx {
         response.headers[
           'Content-Disposition'
         ] = "attachment; filename='products_shops.xlsx'"
       }
-      format.html { render :index }
+      format.html
     end
   end
-
 end
-
-#    @data[:body] = [p_s.product.name, p_s.shop.city, p_s.shop.name, p_s.shop.adress, p_s.quantity, p_s.cost]

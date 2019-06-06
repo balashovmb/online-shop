@@ -8,9 +8,9 @@ wb.styles do |style|
     sheet.add_row ["Products in shops"], style: project_heading
     sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
     sheet.add_row []
-    sheet.add_row @data[:head], style: heading
-    @products_shop.each do |p_s|
-      sheet.add_row @data[:body]
+    sheet.add_row @products_list[:head], style: heading
+    @products_list[:body].each do |product|
+      sheet.add_row product
     end
   end
 end
