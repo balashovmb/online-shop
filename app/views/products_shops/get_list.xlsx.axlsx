@@ -4,9 +4,9 @@ wb.styles do |style|
   project_heading = style.add_style(b: true, sz: 14)
   heading = style.add_style(b: true)
 
-  wb.add_worksheet(name: "Products") do |sheet|
-    sheet.add_row ["Products in shops"], style: project_heading
-    sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
+  wb.add_worksheet(name: "Товары") do |sheet|
+    sheet.add_row ["Наличие товаров в магазинах"], style: project_heading
+    sheet.add_row ["Дата формирования", Time.now.strftime("%b %-d, %Y")]
     sheet.add_row []
     sheet.add_row @products_list[:head], style: heading
     @products_list[:body].each do |product|

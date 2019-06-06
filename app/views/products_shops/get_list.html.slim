@@ -3,8 +3,8 @@
     p
       = label_tag(shop.name)  
       = check_box_tag( {:multiple => true}, shop.id, nil, name:"shop_ids[]")
-  - ProductsShop::PROPS.each do |prop|
+  - ProductsShop::PROPS.each_pair do |prop, prop_name|
     p 
-      = label_tag(prop)  
-      = check_box_tag( {:multiple => true}, prop, nil, name:"props[]")    
+      = label_tag(prop_name)  
+      = check_box_tag( {:multiple => true}, prop, nil, name:"props[]")
   = submit_tag "Сформировать"

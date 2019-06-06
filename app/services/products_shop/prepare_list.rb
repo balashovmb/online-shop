@@ -17,6 +17,7 @@ class ProductsShop::PrepareList < Service
   def prepare_head
     head = ['Артикул', 'Название магазина', 'Остаток']
     head += additional_headings if properties.any?
+    head
   end
 
   def additional_headings

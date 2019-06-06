@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#main'
+  root 'products_shops#get_list'
   resources :products
   resources :products_shops, only: :index do
     collection do

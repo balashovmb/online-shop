@@ -4,13 +4,13 @@ class ProductsShop < ActiveRecord::Base
 
   validates :cost, :quantity, numericality: {greater_than: 0}
 
-  PROPS = [
-           :product_name,
-           :cost,
-           :city,
-           :adress,
-           :subway,
-           :size,
-           :weight
-          ].freeze
+  PROPS = {
+           product_name: "Название товара",
+           cost: "Цена",
+           city: "Город",
+           adress: "Адрес",
+           subway: "Метро",
+           size: "Размер",
+           weight: "Вес"
+          }.freeze
 end
