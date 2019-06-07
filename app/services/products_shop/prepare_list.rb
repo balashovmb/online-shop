@@ -1,5 +1,4 @@
 class ProductsShop::PrepareList < Service
-
   def initialize(shop_ids, properties)
     @shop_ids = shop_ids.map(&:to_i)
     @properties = properties
@@ -51,7 +50,7 @@ class ProductsShop::PrepareList < Service
     _additional_columns << ps.product.name if properties.include?('product_name')
     _additional_columns << ps.cost if properties.include?('cost')
     _additional_columns << ps.shop.city if properties.include?('city')
-    _additional_columns << ps.shop.adress if properties.include?('address')
+    _additional_columns << ps.shop.address if properties.include?('address')
     _additional_columns << ps.shop.subway if properties.include?('subway')
     _additional_columns << ps.product.size if properties.include?('size')
     _additional_columns << ps.product.weight if properties.include?('weight')

@@ -1,9 +1,26 @@
 FactoryBot.define do
-  factory :product do
-    item_number { 1 }
-    name { "MyString" }
-    weight { 1 }
-    size { 1 }
-    color { "MyString" }
+  sequence :item_number do |n|
+    n
   end
+
+  sequence :weight do |n|
+    n
+  end
+
+  sequence :size do |n|
+    n
+  end
+
+  sequence :color do |n|
+    "Color#{n}"
+  end
+
+  factory :product do
+    item_number
+    name { 'Product name' }
+    weight
+    size
+    color
+  end
+
 end

@@ -8,9 +8,11 @@ wb.styles do |style|
     sheet.add_row ["Наличие товаров в магазинах"], style: project_heading
     sheet.add_row ["Дата формирования", Time.now.strftime("%b %-d, %Y")]
     sheet.add_row []
-    sheet.add_row @products_list[:head], style: heading
-    @products_list[:body].each do |product|
-      sheet.add_row product
+    if @products_list
+      sheet.add_row @products_list[:head], style: heading
+      @products_list[:body].each do |product|
+        sheet.add_row product
+      end
     end
   end
 end
