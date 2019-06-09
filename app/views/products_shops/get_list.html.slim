@@ -1,6 +1,8 @@
 - shops_length = @shops.length
-- number_rows = (shops_length.to_f / 4).ceil
+- number_rows = (shops_length.to_f / 3).ceil
+h2 Отчет по остаткам
 = form_tag get_list_products_shops_path(format: :xlsx), method: :get do |f|
+  = hidden_field_tag "form", :true
   h3 Дополнительные поля отчета
   - ProductsShop::PROPS.each_pair do |prop, prop_name|
     p
@@ -15,8 +17,8 @@
             - shop_ind = row + number_rows * col
             - if shop_ind < shops_length
               - shop = @shops[shop_ind]
-              - shop_full = "#{shop.name} #{shop.city} #{shop.address}"
-              - shop_full +=  shop.subway if shop.subway
+              - shop_full = "#{shop.name}, #{shop.city}, #{shop.address}"
+              - shop_full += ", метро: #{shop.subway}" if shop.subway
               = check_box_tag( {:multiple => true}, shop.id, nil, name:"shop_ids[]")
               = label_tag(shop_full)
   p = submit_tag "Сформировать"

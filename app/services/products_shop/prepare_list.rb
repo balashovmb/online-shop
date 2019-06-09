@@ -12,10 +12,11 @@ class ProductsShop::PrepareList < Service
   end
 
   private
+  attr_reader :shop_ids, :properties
 
   def prepare_head
     head = ['Артикул', 'Название магазина', 'Остаток']
-    head += additional_headings if properties.any?
+    head += additional_headings if properties && properties.any?
     head
   end
 
@@ -39,7 +40,7 @@ class ProductsShop::PrepareList < Service
       row << ps.product.item_number
       row << ps.shop.name
       row << ps.quantity
-      row += additional_columns(ps) if properties.any?
+      row += additional_columns(ps) if properties && properties.any?
       body << row
     end
     body
@@ -56,6 +57,4 @@ class ProductsShop::PrepareList < Service
     _additional_columns << ps.product.weight if properties.include?('weight')
     _additional_columns
   end
-
-  attr_reader :shop_ids, :properties
 end

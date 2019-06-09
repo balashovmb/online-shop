@@ -3,6 +3,7 @@ class ProductsShop < ActiveRecord::Base
   belongs_to :product
 
   validates :cost, :quantity, numericality: {greater_than: 0}
+  validates :shop, :product, presence: true
 
   PROPS = {
            product_name: "Название товара",
