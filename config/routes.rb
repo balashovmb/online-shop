@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'products_shops#get_list'
-  resources :products
   resources :products_shops, only: :index do
     collection do
       get 'get_list'

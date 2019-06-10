@@ -11,7 +11,7 @@ class ProductsShopsController < ApplicationController
       format.xlsx {
         response.headers[
           'Content-Disposition'
-        ] = "attachment; filename='products_shops.xlsx'"
+        ] = "attachment; filename='Отчет_по_остаткам.xlsx'"
       }
       format.html
     end
