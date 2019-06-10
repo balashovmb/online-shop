@@ -1,5 +1,4 @@
 wb = xlsx_package.workbook
-
 wb.styles do |style|
   project_heading = style.add_style(b: true, sz: 14)
   heading = style.add_style(b: true)
@@ -14,5 +13,6 @@ wb.styles do |style|
         sheet.add_row product
       end
     end
+    sheet.column_widths 30
   end
 end

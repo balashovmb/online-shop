@@ -9,7 +9,7 @@ class ProductsShop < ActiveRecord::Base
            product_name: "Название товара",
            cost: "Цена",
            city: "Город",
-           adress: "Адрес",
+           address: "Адрес",
            subway: "Метро",
            size: "Размер",
            weight: "Вес"
