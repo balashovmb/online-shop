@@ -33,7 +33,7 @@ class ProductsShop::PrepareList < Service
   end
 
   def prepare_body
-    products_shops = ProductsShop.where(shop_id: shop_ids)
+    products_shops = ProductsShop.where(shop_id: shop_ids).includes(shop: :city)
     body = []
     products_shops.each do |ps|
       row = []

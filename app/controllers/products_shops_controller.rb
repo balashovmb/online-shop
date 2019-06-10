@@ -1,6 +1,6 @@
 class ProductsShopsController < ApplicationController
   def get_list
-    @shops = Shop.joins(:city).order('cities.name', :name, :address)
+    @shops = Shop.eager_load(:city).order('cities.name', :name, :address)
     shop_ids = params[:shop_ids]
     props = params[:props]
     if params[:form] && !shop_ids

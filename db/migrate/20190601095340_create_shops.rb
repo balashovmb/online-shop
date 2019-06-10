@@ -9,5 +9,6 @@ class CreateShops < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :shops, :city_id
   end
 end
