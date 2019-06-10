@@ -11,22 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190603123844) do
+ActiveRecord::Schema.define(version: 20190610073346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "products", force: true do |t|
-    t.integer  "item_number",             null: false
-    t.string   "name",        limit: nil, null: false
-    t.integer  "weight",                  null: false
-    t.integer  "size",                    null: false
-    t.string   "color",       limit: nil, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "products_shops", force: true do |t|
+  create_table "products", force: :cascade do |t|
+    t.integer  "item_number", null: false
+    t.string   "name",        null: false
+    t.integer  "weight",      null: false
+    t.integer  "size",        null: false
+    t.string   "color",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "products_shops", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "shop_id"
     t.float    "cost"
@@ -35,13 +41,13 @@ ActiveRecord::Schema.define(version: 20190603123844) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shops", force: true do |t|
-    t.string   "name",       limit: nil, null: false
-    t.string   "address",    limit: nil, null: false
-    t.string   "subway",     limit: nil
-    t.string   "city",       limit: nil, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "shops", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "address",    null: false
+    t.string   "subway"
+    t.integer  "city_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

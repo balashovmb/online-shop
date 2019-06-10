@@ -4,7 +4,8 @@ class CreateShops < ActiveRecord::Migration
       t.string :name, null: false
       t.string :address, null: false
       t.string :subway
-      t.string :city, null: false
+      t.references :city, null: false
+
 
       t.timestamps null: false
     end

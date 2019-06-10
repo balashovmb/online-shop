@@ -1,6 +1,6 @@
 class ProductsShopsController < ApplicationController
   def get_list
-    @shops = Shop.order(:city, :name, :address)
+    @shops = Shop.joins(:city).order('cities.name', :name, :address)
     shop_ids = params[:shop_ids]
     props = params[:props]
     if params[:form] && !shop_ids

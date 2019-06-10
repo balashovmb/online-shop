@@ -11,10 +11,6 @@ FactoryBot.define do
     "Subway#{n}"
   end
 
-  sequence :city do |n|
-    "City#{n}"
-  end
-
   factory :shop do
     name
     address
