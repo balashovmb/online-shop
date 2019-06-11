@@ -22,3 +22,5 @@ h2 Отчет по остаткам
               = check_box_tag( {:multiple => true}, shop.id, nil, name:"shop_ids[]")
               = label_tag(shop_full)
   p = submit_tag "Сформировать"
+
+  p = link_to "Вернуться к выбору городов", select_city_products_shops_path

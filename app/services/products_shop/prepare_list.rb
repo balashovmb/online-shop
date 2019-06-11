@@ -12,6 +12,7 @@ class ProductsShop::PrepareList < Service
   end
 
   private
+
   attr_reader :shop_ids, :properties
 
   def prepare_head

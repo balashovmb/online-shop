@@ -1,0 +1,8 @@
+  h3 Выберите один или несколько городов для формирования отчета.
+  = form_tag select_city_products_shops_path, method: :get do |f|  
+    - @cities.each do |city|
+      p
+        = hidden_field_tag "form", :true    
+        = label_tag(city.name)
+        = check_box_tag( {:multiple => true}, city.id, nil, name:"city_ids[]")
+    p = submit_tag "Далее"

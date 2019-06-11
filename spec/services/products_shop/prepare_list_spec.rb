@@ -23,7 +23,7 @@ describe ProductsShop::PrepareList do
     it "prepares list" do
       expect(subject).to eq(
         body: [
-          [4, "Shop4", 2, "Product name", 1.0, City.first.name , "Address4", "Subway4", 4, 4],
+          [4, "Shop4", 2, "Product name", 1.0, City.first.name, "Address4", "Subway4", 4, 4],
           [5, "Shop5", 2, "Product name", 1.0, City.last.name, "Address5", "Subway5", 5, 5]
         ],
         head: [

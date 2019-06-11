@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'products_shops#get_list'
+  root 'products_shops#select_city'
   resources :products_shops, only: :index do
     collection do
+      get 'select_city'
       get 'get_list'
     end
   end
