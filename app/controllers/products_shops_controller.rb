@@ -2,8 +2,8 @@ class ProductsShopsController < ApplicationController
   def select_city
     session[:city_ids] = nil
     @cities = City.order(:name)
-    city_ids = params[:city_ids]
     if params[:form]
+      city_ids = params[:city_ids]
       if city_ids
         session[:city_ids] = city_ids
         redirect_to "/products_shops/get_list"
@@ -16,7 +16,7 @@ class ProductsShopsController < ApplicationController
 
   def get_list
     city_ids = session[:city_ids]
-    @shops = Shop.eager_load(:city).where(city_id: city_ids).order('cities.name', :name, :address)
+    @shops = Shop.where(city_id: city_ids).eager_load(:city).order('cities.name', :name, :address)
     shop_ids = params[:shop_ids]
     props = params[:props]
     if params[:form] && !shop_ids
