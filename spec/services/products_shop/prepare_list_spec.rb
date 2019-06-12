@@ -13,7 +13,9 @@ describe ProductsShop::PrepareList do
     let(:shop_ids) { [Shop.first.id] }
     let(:props) { [] }
     it "prepares list" do
-      expect(subject).to eq(body: [[2, "Shop2", 2]], head: ["Артикул", "Название магазина", "Остаток"])
+      expect(subject).to eq(
+        body: [[2, "Shop2", 2]], head: ["Артикул", "Название магазина", "Остаток"]
+      )
     end
   end
 
